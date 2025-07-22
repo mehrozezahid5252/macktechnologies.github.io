@@ -567,6 +567,41 @@
             font-size: 14px;
         }
         
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            background: var(--card-bg);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transform: translateX(120%);
+            transition: transform 0.4s ease;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            border-left-color: #4caf50;
+        }
+        
+        .notification.error {
+            border-left-color: #f44336;
+        }
+        
+        .notification i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
@@ -614,6 +649,17 @@
             .tabs {
                 flex-direction: column;
             }
+            
+            .notification {
+                top: 80px;
+                left: 20px;
+                right: 20px;
+                transform: translateY(-150%);
+            }
+            
+            .notification.show {
+                transform: translateY(0);
+            }
         }
         
         /* Animation */
@@ -625,6 +671,22 @@
         
         .floating {
             animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -923,41 +985,47 @@
                 
                 <div class="contact-form">
                     <h3>Send Us a Message</h3>
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/f/mrblpboy" method="POST">
+                        <input type="hidden" name="_subject" value="New Message from MACK Technologies Website">
+                        <input type="hidden" name="_format" value="plain">
+                        
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control">
+                            <input type="tel" id="phone" name="phone" class="form-control">
                         </div>
                         
                         <div class="form-group">
                             <label for="service">Service Interested In</label>
-                            <select id="service" class="form-control">
+                            <select id="service" name="service" class="form-control">
                                 <option value="">Select a service</option>
-                                <option value="remote">Remote IT Support</option>
-                                <option value="onsite">Onsite IT Support</option>
-                                <option value="cloud">Cloud Solutions</option>
-                                <option value="security">Cybersecurity</option>
-                                <option value="migration">Migration Services</option>
-                                <option value="other">Other</option>
+                                <option value="Remote IT Support">Remote IT Support</option>
+                                <option value="Onsite IT Support">Onsite IT Support</option>
+                                <option value="Cloud Solutions">Cloud Solutions</option>
+                                <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="Migration Services">Migration Services</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="btn" style="width: 100%;" id="submitBtn">
+                            <span class="spinner" id="formSpinner"></span>
+                            <span id="btnText">Send Message</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -1020,6 +1088,12 @@
         </div>
     </footer>
 
+    <!-- Notification Element -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText"></span>
+    </div>
+
     <script>
         // Tab functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1058,31 +1132,72 @@
             
             // Form submission
             const contactForm = document.getElementById('contactForm');
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const formSpinner = document.getElementById('formSpinner');
+            
+            function showNotification(message, isSuccess = true) {
+                const icon = notification.querySelector('i');
+                notificationText.textContent = message;
+                icon.className = isSuccess ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+                notification.className = isSuccess ? 'notification success show' : 'notification error show';
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
+            }
+            
             if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
+                contactForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
                     // Get form values
                     const name = document.getElementById('name').value;
                     const email = document.getElementById('email').value;
-                    const phone = document.getElementById('phone').value;
-                    const service = document.getElementById('service').value;
                     const message = document.getElementById('message').value;
                     
                     // Basic validation
                     if (!name || !email || !message) {
-                        alert('Please fill in all required fields');
+                        showNotification('Please fill in all required fields', false);
                         return;
                     }
                     
-                    // In a real implementation, you would send this data to your server
-                    // For this example, we'll just show a success message
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    btnText.textContent = 'Sending...';
+                    formSpinner.style.display = 'inline-block';
                     
-                    // Show success message
-                    alert(`Thank you ${name}! Your message has been sent. We will contact you at ${email} shortly.`);
-                    
-                    // Reset form
-                    contactForm.reset();
+                    try {
+                        const formData = new FormData(contactForm);
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            showNotification(`Thank you ${name}! Your message has been sent. We'll contact you soon.`, true);
+                            contactForm.reset();
+                        } else {
+                            const errorData = await response.json();
+                            if (errorData.errors) {
+                                showNotification(errorData.errors.map(error => error.message).join(", "), false);
+                            } else {
+                                showNotification('There was a problem sending your message. Please try again.', false);
+                            }
+                        }
+                    } catch (error) {
+                        showNotification('There was a network error. Please try again.', false);
+                    } finally {
+                        // Reset button state
+                        submitBtn.disabled = false;
+                        btnText.textContent = 'Send Message';
+                        formSpinner.style.display = 'none';
+                    }
                 });
             }
         });
