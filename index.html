@@ -30,6 +30,9 @@
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(10, 132, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 20%);
         }
         
         h1, h2, h3, h4, h5 {
@@ -90,10 +93,18 @@
             font-weight: 700;
             color: white;
             text-decoration: none;
+            display: flex;
+            align-items: center;
         }
         
         .logo span {
             color: var(--primary);
+        }
+        
+        .logo i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 24px;
         }
         
         nav ul {
@@ -146,6 +157,7 @@
             padding: 180px 0 100px;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
         
         .hero::before {
@@ -175,7 +187,8 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 650px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .hero h1 {
@@ -195,12 +208,15 @@
             font-size: 1.2rem;
             color: var(--gray);
             margin-bottom: 30px;
-            max-width: 600px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-btns {
             display: flex;
             gap: 15px;
+            justify-content: center;
         }
         
         .btn-secondary {
@@ -254,6 +270,7 @@
             justify-content: center;
             margin-bottom: 40px;
             flex-wrap: wrap;
+            gap: 10px;
         }
         
         .tab-btn {
@@ -299,6 +316,7 @@
             padding: 30px;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
         }
         
         .service-card:hover {
@@ -315,7 +333,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
             font-size: 28px;
             color: var(--primary);
         }
@@ -364,10 +382,13 @@
             display: flex;
             gap: 30px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
         
         .stat-item {
             text-align: center;
+            flex: 1;
+            min-width: 120px;
         }
         
         .stat-item h3 {
@@ -427,6 +448,7 @@
             margin-right: 15px;
             color: var(--primary);
             font-size: 20px;
+            flex-shrink: 0;
         }
         
         .contact-text h4 {
@@ -434,9 +456,56 @@
             margin-bottom: 5px;
         }
         
-        .contact-text p {
+        .contact-text p, .contact-text a {
             margin: 0;
             color: var(--gray);
+            text-decoration: none;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(10, 14, 23, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--light);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
         }
         
         /* Footer */
@@ -541,6 +610,21 @@
             .section-header h2 {
                 font-size: 2rem;
             }
+            
+            .tabs {
+                flex-direction: column;
+            }
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
     </style>
 </head>
@@ -548,7 +632,7 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">MACK <span>Technologies</span></a>
+            <a href="#" class="logo"><i class="fas fa-shield-alt"></i>MACK <span>Technologies</span></a>
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -593,7 +677,7 @@
             
             <div class="tab-content active" id="cloud-tab">
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card floating">
                         <div class="service-icon">
                             <i class="fas fa-cloud"></i>
                         </div>
@@ -601,7 +685,7 @@
                         <p>Secure, scalable private cloud solutions tailored to your business requirements.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.2s;">
                         <div class="service-icon">
                             <i class="fab fa-microsoft"></i>
                         </div>
@@ -609,7 +693,7 @@
                         <p>Complete Office 365 solutions including migration, deployment, and management.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.4s;">
                         <div class="service-icon">
                             <i class="fas fa-network-wired"></i>
                         </div>
@@ -617,7 +701,7 @@
                         <p>Optimize your infrastructure with a perfect blend of private and public cloud.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.6s;">
                         <div class="service-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -625,7 +709,7 @@
                         <p>Professional email hosting with enterprise-grade security and reliability.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.8s;">
                         <div class="service-icon">
                             <i class="fas fa-server"></i>
                         </div>
@@ -633,7 +717,7 @@
                         <p>State-of-the-art data center solutions with maximum uptime and security.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 1s;">
                         <div class="service-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
@@ -645,7 +729,7 @@
             
             <div class="tab-content" id="security-tab">
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card floating">
                         <div class="service-icon">
                             <i class="fas fa-hdd"></i>
                         </div>
@@ -653,7 +737,7 @@
                         <p>Comprehensive data protection solutions to safeguard your critical business information.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.2s;">
                         <div class="service-icon">
                             <i class="fas fa-globe"></i>
                         </div>
@@ -661,7 +745,7 @@
                         <p>Protect your online assets with advanced web security and threat prevention.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.4s;">
                         <div class="service-icon">
                             <i class="fas fa-shield-virus"></i>
                         </div>
@@ -669,7 +753,7 @@
                         <p>Advanced network security solutions to defend against evolving cyber threats.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.6s;">
                         <div class="service-icon">
                             <i class="fas fa-mail-bulk"></i>
                         </div>
@@ -677,7 +761,7 @@
                         <p>Protect your organization from phishing, malware, and email-based attacks.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.8s;">
                         <div class="service-icon">
                             <i class="fas fa-database"></i>
                         </div>
@@ -685,7 +769,7 @@
                         <p>Transform your data into actionable insights with our BI solutions.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 1s;">
                         <div class="service-icon">
                             <i class="fas fa-stream"></i>
                         </div>
@@ -697,7 +781,7 @@
             
             <div class="tab-content" id="managed-tab">
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card floating">
                         <div class="service-icon">
                             <i class="fas fa-key"></i>
                         </div>
@@ -705,7 +789,7 @@
                         <p>Comprehensive software licensing solutions to ensure compliance and cost efficiency.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.2s;">
                         <div class="service-icon">
                             <i class="fas fa-laptop"></i>
                         </div>
@@ -713,7 +797,7 @@
                         <p>Source the best hardware solutions tailored to your business needs.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.4s;">
                         <div class="service-icon">
                             <i class="fas fa-drafting-compass"></i>
                         </div>
@@ -721,7 +805,7 @@
                         <p>Expert design and seamless integration of complex IT infrastructures.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.6s;">
                         <div class="service-icon">
                             <i class="fas fa-headset"></i>
                         </div>
@@ -729,7 +813,7 @@
                         <p>Proactive IT management to keep your systems running smoothly 24/7.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 0.8s;">
                         <div class="service-icon">
                             <i class="fas fa-project-diagram"></i>
                         </div>
@@ -737,7 +821,7 @@
                         <p>Expert project management for seamless technology implementation.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card floating" style="animation-delay: 1s;">
                         <div class="service-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
@@ -769,6 +853,10 @@
                         <div class="stat-item">
                             <h3>24/7</h3>
                             <p>Support</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>99.9%</h3>
+                            <p>Uptime Guarantee</p>
                         </div>
                     </div>
                     <a href="#contact" class="btn">Get in Touch</a>
@@ -803,11 +891,21 @@
                         
                         <div class="contact-item">
                             <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+61405668602">+61 405 668 602</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-text">
                                 <h4>Email</h4>
-                                <p>support@macktechnologies.com.au</p>
+                                <a href="mailto:support@macktechnologies.com.au">support@macktechnologies.com.au</a>
                             </div>
                         </div>
                         
@@ -822,6 +920,46 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="remote">Remote IT Support</option>
+                                <option value="onsite">Onsite IT Support</option>
+                                <option value="cloud">Cloud Solutions</option>
+                                <option value="security">Cybersecurity</option>
+                                <option value="migration">Migration Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -833,6 +971,14 @@
                 <div class="footer-col">
                     <h4>MACK Technologies</h4>
                     <p>Australia's leading provider of IT and cybersecurity solutions, helping businesses transform their technology infrastructure.</p>
+                    <div class="contact-item" style="margin-top: 20px;">
+                        <div class="contact-icon" style="width: 40px; height: 40px; font-size: 16px;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <a href="tel:+61405668602">+61 405 668 602</a>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="footer-col">
@@ -852,6 +998,8 @@
                         <li><a href="#">Onsite IT Support</a></li>
                         <li><a href="#">Cloud Solutions</a></li>
                         <li><a href="#">Cybersecurity</a></li>
+                        <li><a href="#">Network Engineering</a></li>
+                        <li><a href="#">Infrastructure</a></li>
                     </ul>
                 </div>
                 
@@ -859,7 +1007,8 @@
                     <h4>Contact Us</h4>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> St George Terrace, Perth WA 6000</li>
-                        <li><i class="fas fa-envelope"></i> support@macktechnologies.com.au</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+61405668602">+61 405 668 602</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:support@macktechnologies.com.au">support@macktechnologies.com.au</a></li>
                         <li><i class="fas fa-id-card"></i> ABN: 14202983925</li>
                     </ul>
                 </div>
@@ -906,6 +1055,36 @@
                     }
                 });
             });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const service = document.getElementById('service').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Basic validation
+                    if (!name || !email || !message) {
+                        alert('Please fill in all required fields');
+                        return;
+                    }
+                    
+                    // In a real implementation, you would send this data to your server
+                    // For this example, we'll just show a success message
+                    
+                    // Show success message
+                    alert(`Thank you ${name}! Your message has been sent. We will contact you at ${email} shortly.`);
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
         });
     </script>
 </body>
