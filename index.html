@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MACK Technologies | IT Support & Cybersecurity Solutions Perth</title>
-    <meta name="description" content="MACK Technologies provides comprehensive IT support and cybersecurity solutions in Perth. Protect your business from cyber threats with our expert services.">
-    <meta name="keywords" content="IT support Perth, cybersecurity Perth, cloud solutions, network security, managed IT services, data protection, Perth IT company">
+    <meta name="description" content="MACK Technologies provides comprehensive IT support, cybersecurity solutions, and network services in Perth. Protect your business from cyber threats with our expert managed IT services, cloud solutions, and network engineering.">
+    <meta name="keywords" content="IT support Perth, cybersecurity Perth, network solutions Perth, cloud solutions Perth, managed IT services Perth, data protection Perth, network engineering, VPN solutions Perth, WAN solutions, LAN setup Perth">
     <meta name="author" content="MACK Technologies">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -277,40 +277,10 @@
             animation: pulse 3s infinite 0.5s;
         }
         
-        .attack-dots {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .attack-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #d13438; /* Microsoft red */
-            border-radius: 50%;
-            animation: attackAnimation 4s infinite;
-        }
-        
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.3); }
             70% { box-shadow: 0 0 0 20px rgba(0, 120, 212, 0); }
             100% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0); }
-        }
-        
-        @keyframes attackAnimation {
-            0% { transform: translate(0, 0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translate(
-                    calc(100px + (100% - 200px) * var(--tx)), 
-                    calc(100px + (100% - 200px) * var(--ty))
-                ); 
-                opacity: 0;
-            }
         }
         
         /* Services Section */
@@ -815,7 +785,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Secure Your Digital <span>Future</span> with MACK Technologies</h1>
-                <p>Australia's leading Technology provider, bringing IT experts together to deliver responsive, reliable and effective IT solutions to solve and support all of your technology challenges.</p>
+                <p>Australia's leading Technology provider, bringing IT experts together to deliver responsive, reliable and effective IT solutions to solve and support all of your technology challenges. Serving Perth businesses with comprehensive IT support, cybersecurity solutions, and network services since 2008.</p>
                 <div class="hero-btns">
                     <a href="#services" class="btn">Explore Services</a>
                     <a href="#contact" class="btn btn-secondary">Contact Us</a>
@@ -829,10 +799,9 @@
         <div class="container">
             <div class="animation-container" id="cyberAnimation">
                 <div class="cyber-shield"></div>
-                <div class="attack-dots" id="attackDots"></div>
                 <div class="stat-content">
                     <h2>43% of Australian Businesses Attacked</h2>
-                    <p>In the past year, nearly half of Australian businesses experienced a cyber attack. Don't become a statistic.</p>
+                    <p>In the past year, nearly half of Australian businesses experienced a cyber attack. Don't become a statistic. Our comprehensive cybersecurity solutions protect Perth businesses from evolving threats.</p>
                     <a href="#contact" class="btn">Protect Your Business Now</a>
                 </div>
             </div>
@@ -844,12 +813,13 @@
         <div class="container">
             <div class="section-header">
                 <h2>Services & Products</h2>
-                <p>Mack Technologies, Australia's leading Technology provider, brings IT experts together to deliver responsive, reliable and effective IT products and services to solve and support all of the technology challenges you face each day.</p>
+                <p>MACK Technologies, Perth's leading IT solutions provider, brings together certified experts to deliver responsive, reliable technology services. We specialize in cybersecurity, cloud migration, network infrastructure, and managed IT services to solve your daily technology challenges.</p>
             </div>
             
             <div class="tabs">
                 <button class="tab-btn active" data-tab="cloud">Cloud Solutions</button>
                 <button class="tab-btn" data-tab="security">Security Solutions</button>
+                <button class="tab-btn" data-tab="network">Network Solutions</button>
                 <button class="tab-btn" data-tab="managed">Managed Services</button>
             </div>
             
@@ -957,6 +927,83 @@
                 </div>
             </div>
             
+            <!-- New Network Solutions Tab -->
+            <div class="tab-content" id="network-tab">
+                <div class="services-grid">
+                    <div class="service-card floating">
+                        <div class="service-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3>Network Support</h3>
+                        <p>24/7 expert network support to ensure optimal performance and minimal downtime.</p>
+                    </div>
+                    
+                    <div class="service-card floating" style="animation-delay: 0.2s;">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Network Engineering</h3>
+                        <p>Design and implementation of robust network infrastructures for Perth businesses.</p>
+                    </div>
+                    
+                    <div class="service-card floating" style="animation-delay: 0.4s;">
+                        <div class="service-icon">
+                            <i class="fas fa-traffic-light"></i>
+                        </div>
+                        <h3>Traffic Engineering</h3>
+                        <p>Optimize network traffic flow and bandwidth utilization for peak performance.</p>
+                    </div>
+                    
+                    <div class="service-card floating" style="animation-delay: 0.6s;">
+                        <div class="service-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>VPN (SSL VPN)</h3>
+                        <p>Secure remote access solutions with enterprise-grade SSL VPN technology.</p>
+                    </div>
+                    
+                    <div class="service-card floating" style="animation-delay: 0.8s;">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Work from Home Network</h3>
+                        <p>Secure and reliable remote work solutions for distributed teams.</p>
+                    </div>
+                    
+                    <div class="service-card floating" style="animation-delay: 1s;">
+                        <div class="service-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>Remote Desktop VPN</h3>
+                        <p>Secure remote desktop access solutions for flexible workforce management.</p>
+                    </div>
+                    
+                    <div class="service-card floating" style="animation-delay: 1.2s;">
+                        <div class="service-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3>Routing & Switching</h3>
+                        <p>Enterprise-grade routing and switching solutions for optimal network performance.</p>
+                    </div>
+                    
+                    <div class="service-card floating" style="animation-delay: 1.4s;">
+                        <div class="service-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Local Area Network</h3>
+                        <p>Design and implementation of high-performance LAN infrastructure.</p>
+                    </div>
+                    
+                    <div class="service-card floating" style="animation-delay: 1.6s;">
+                        <div class="service-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3>Wide Area Network</h3>
+                        <p>Scalable WAN solutions connecting multiple locations securely.</p>
+                    </div>
+                </div>
+            </div>
+            
             <div class="tab-content" id="managed-tab">
                 <div class="services-grid">
                     <div class="service-card floating">
@@ -1017,8 +1064,8 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Why Choose <span>MACK Technologies</span></h2>
-                    <p>Through MACK Technologies' extensive IT services capability we will help you get more out of your IT to achieve better business outcomes.</p>
-                    <p>Our experienced team provides organizations with IT services including design, implementation, and management. Every business has unique IT challenges, and we develop reliable, secure, innovative IT solutions tailored to your specific needs.</p>
+                    <p>Through MACK Technologies' extensive IT services capability we will help you get more out of your IT to achieve better business outcomes. As Perth's trusted IT partner since 2008, we've helped hundreds of businesses transform their technology infrastructure.</p>
+                    <p>Our experienced team provides organizations with IT services including design, implementation, and management. Every business has unique IT challenges, and we develop reliable, secure, innovative IT solutions tailored to your specific needs. With certified engineers specializing in cybersecurity, cloud solutions, and network infrastructure, we're equipped to handle Perth's most complex IT environments.</p>
                     <div class="stats">
                         <div class="stat-item">
                             <h3>15+</h3>
@@ -1048,13 +1095,13 @@
         <div class="container">
             <div class="section-header">
                 <h2>Get in Touch</h2>
-                <p>Have questions or ready to transform your IT infrastructure? Contact our team of experts today.</p>
+                <p>Have questions or ready to transform your IT infrastructure? Contact our team of experts today for a free consultation on our Perth IT services, cybersecurity solutions, and network engineering capabilities.</p>
             </div>
             
             <div class="contact-container">
                 <div class="contact-info">
                     <h2>Contact Information</h2>
-                    <p>Reach out to us for any inquiries or support. Our team is ready to assist you with all your IT needs.</p>
+                    <p>Reach out to us for any inquiries or support. Our team is ready to assist you with all your IT needs. We serve businesses across Perth and Western Australia with responsive IT solutions.</p>
                     
                     <div class="contact-details">
                         <div class="contact-item">
@@ -1093,7 +1140,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>ABN</h4>
-                                <p>14202983925</p>
+                                <p>14262083925</p>
                             </div>
                         </div>
                     </div>
@@ -1129,6 +1176,7 @@
                                 <option value="Onsite IT Support">Onsite IT Support</option>
                                 <option value="Cloud Solutions">Cloud Solutions</option>
                                 <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="Network Solutions">Network Solutions</option>
                                 <option value="Migration Services">Migration Services</option>
                                 <option value="Other">Other</option>
                             </select>
@@ -1155,7 +1203,7 @@
             <div class="footer-container">
                 <div class="footer-col">
                     <h4>MACK Technologies</h4>
-                    <p>Australia's leading provider of IT and cybersecurity solutions, helping businesses transform their technology infrastructure.</p>
+                    <p>Perth's leading provider of IT, cybersecurity, and network solutions, helping businesses transform their technology infrastructure since 2008.</p>
                     <div class="contact-item" style="margin-top: 20px;">
                         <div class="contact-icon" style="width: 40px; height: 40px; font-size: 16px;">
                             <i class="fas fa-phone"></i>
@@ -1194,7 +1242,7 @@
                         <li><i class="fas fa-map-marker-alt"></i> St George Terrace, Perth WA 6000</li>
                         <li><i class="fas fa-phone"></i> <a href="tel:+61405668602">+61 405 668 602</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:support@macktechnologies.com.au">support@macktechnologies.com.au</a></li>
-                        <li><i class="fas fa-id-card"></i> ABN: 14202983925</li>
+                        <li><i class="fas fa-id-card"></i> ABN: 14262083925</li>
                     </ul>
                 </div>
             </div>
@@ -1246,36 +1294,6 @@
                     }
                 });
             });
-            
-            // Create cyber attack animation
-            function createAttackAnimation() {
-                const container = document.getElementById('attackDots');
-                const dotsCount = 30;
-                
-                for (let i = 0; i < dotsCount; i++) {
-                    const dot = document.createElement('div');
-                    dot.className = 'attack-dot';
-                    
-                    // Random starting position
-                    const startX = Math.random() * 100;
-                    const startY = Math.random() * 100;
-                    
-                    // Random target position (toward center)
-                    const tx = Math.random();
-                    const ty = Math.random();
-                    
-                    dot.style.setProperty('--tx', tx);
-                    dot.style.setProperty('--ty', ty);
-                    dot.style.left = `${startX}%`;
-                    dot.style.top = `${startY}%`;
-                    dot.style.animationDelay = `${Math.random() * 2}s`;
-                    
-                    container.appendChild(dot);
-                }
-            }
-            
-            // Initialize animation
-            createAttackAnimation();
             
             // Form submission
             const contactForm = document.getElementById('contactForm');
