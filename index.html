@@ -157,12 +157,15 @@
         
         /* Hero Section */
         .hero {
-            background-color: var(--light);
-            padding: 150px 0 80px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 180px 0 100px;
             position: relative;
             overflow: hidden;
             text-align: center;
-            border-bottom: 1px solid var(--medium-gray);
+            color: white;
         }
         
         .hero-content {
@@ -176,7 +179,7 @@
             font-size: 2.8rem;
             margin-bottom: 20px;
             line-height: 1.3;
-            color: var(--dark);
+            color: var(--light);
         }
         
         .hero h1 span {
@@ -185,7 +188,7 @@
         
         .hero p {
             font-size: 1.2rem;
-            color: var(--dark-gray);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 30px;
             max-width: 700px;
             margin-left: auto;
@@ -200,16 +203,16 @@
         
         .btn-secondary {
             background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
+            border: 1px solid var(--light);
+            color: var(--light);
             box-shadow: none;
         }
         
         .btn-secondary:hover {
-            background-color: rgba(0, 120, 212, 0.05);
+            background-color: rgba(255, 255, 255, 0.1);
         }
         
-        /* Security Animation Section */
+        /* Security Animation Section - REMOVED ANIMATION */
         .security-stats {
             background-color: var(--light-gray);
             padding: 80px 0;
@@ -221,7 +224,6 @@
         
         .animation-container {
             position: relative;
-            height: 300px;
             margin: 40px auto;
             max-width: 800px;
             border-radius: 4px;
@@ -229,15 +231,7 @@
             border: 1px solid var(--medium-gray);
             background: var(--card-bg);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .stat-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            width: 90%;
+            padding: 60px 40px;
         }
         
         .stat-content h2 {
@@ -250,37 +244,6 @@
             font-size: 1.1rem;
             margin-bottom: 30px;
             color: var(--dark-gray);
-        }
-        
-        .cyber-shield {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            border: 3px solid var(--primary);
-            border-radius: 50%;
-            z-index: 1;
-            animation: pulse 3s infinite;
-        }
-        
-        .cyber-shield::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 2px solid var(--secondary);
-            border-radius: 50%;
-            animation: pulse 3s infinite 0.5s;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.3); }
-            70% { box-shadow: 0 0 0 20px rgba(0, 120, 212, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0); }
         }
         
         /* Services Section */
@@ -691,7 +654,7 @@
             }
             
             .hero {
-                padding: 130px 0 60px;
+                padding: 150px 0 60px;
             }
             
             .hero h1 {
@@ -794,11 +757,10 @@
         </div>
     </section>
 
-    <!-- Security Animation Section -->
+    <!-- Security Animation Section - ANIMATION REMOVED -->
     <section class="security-stats">
         <div class="container">
-            <div class="animation-container" id="cyberAnimation">
-                <div class="cyber-shield"></div>
+            <div class="animation-container">
                 <div class="stat-content">
                     <h2>43% of Australian Businesses Attacked</h2>
                     <p>In the past year, nearly half of Australian businesses experienced a cyber attack. Don't become a statistic. Our comprehensive cybersecurity solutions protect Perth businesses from evolving threats.</p>
@@ -1150,8 +1112,6 @@
                     <h3>Send Us a Message</h3>
                     <form id="contactForm" action="https://formspree.io/f/mrblpboy" method="POST">
                         <input type="hidden" name="_subject" value="New Enquiry from MACK Technologies Website">
-                        <input type="hidden" name="_replyto" value="support@macktechnologies.com.au">
-                        <input type="hidden" name="_cc" value="support@macktechnologies.com.au">
                         
                         <div class="form-group">
                             <label for="name">Full Name *</label>
@@ -1348,12 +1308,7 @@
                             showNotification(`Thank you ${name}! Your message has been sent. We'll contact you soon.`, true);
                             contactForm.reset();
                         } else {
-                            const errorData = await response.json();
-                            if (errorData.errors) {
-                                showNotification(errorData.errors.map(error => error.message).join(", "), false);
-                            } else {
-                                showNotification('There was a problem sending your message. Please try again.', false);
-                            }
+                            showNotification('There was a problem sending your message. Please try again.', false);
                         }
                     } catch (error) {
                         showNotification('There was a network error. Please try again.', false);
