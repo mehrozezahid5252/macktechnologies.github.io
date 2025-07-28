@@ -2,1324 +2,787 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MACK Technologies | IT Support & Cybersecurity Solutions Perth</title>
-    <meta name="description" content="MACK Technologies provides comprehensive IT support, cybersecurity solutions, and network services in Perth. Protect your business from cyber threats with our expert managed IT services, cloud solutions, and network engineering.">
-    <meta name="keywords" content="IT support Perth, cybersecurity Perth, network solutions Perth, cloud solutions Perth, managed IT services Perth, data protection Perth, network engineering, VPN solutions Perth, WAN solutions, LAN setup Perth">
-    <meta name="author" content="MACK Technologies">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!--
+      Meta tags for search engine optimisation.  The description and keyword values
+      succinctly summarise the services offered by MACK Technologies and use
+      geographic qualifiers for better local SEO.  These tags appear in the
+      head of the document so search engines can index them correctly.
+    -->
+    <meta name="description" content="MACK Technologies delivers IT support, cybersecurity, network engineering and cloud solutions to businesses across Perth and Western Australia. Contact our experts for responsive, reliable and secure technology services.">
+    <meta name="keywords" content="IT support, managed IT services, cybersecurity, network solutions, cloud solutions, Perth, Western Australia">
+    <title>MACK Technologies | IT Support, Network &amp; Security Solutions</title>
     <style>
         :root {
-            --primary: #0078D4; /* Microsoft blue */
-            --secondary: #107C10; /* Microsoft green */
-            --light: #FFFFFF; /* White background */
-            --light-gray: #F3F2F1; /* Microsoft light gray */
-            --medium-gray: #E1DFDD; /* Border/divider color */
-            --dark-gray: #605E5C; /* Secondary text */
-            --dark: #323130; /* Primary text */
-            --card-bg: #FFFFFF; /* Card background */
-            --transition: all 0.3s ease;
+            /* Core colours derived from the company logo.  Black is used for
+               primary text and accents, white for backgrounds and large
+               typography.  Subtle greys provide contrast without introducing
+               additional hues. */
+            --primary-color: #000000;
+            --secondary-color: #222222;
+            --background-color: #ffffff;
+            --light-gray: #f7f7f7;
+            --medium-gray: #e0e0e0;
+            --card-bg: #fafafa;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--primary-color);
+            background-color: var(--background-color);
             line-height: 1.6;
-            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600; /* Slightly lighter weight */
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
+
+        /* Container constrains content width for readability on larger screens */
         .container {
-            width: 100%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 2px; /* Microsoft's square corners */
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: none;
-            letter-spacing: normal;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            box-shadow: none;
-        }
-        
-        .btn:hover {
-            background-color: #106EBE; /* Darker blue on hover */
-            transform: none;
-            box-shadow: none;
-        }
-        
-        /* Header Styles */
+
+        /* Header and navigation styling */
         header {
-            background-color: var(--light);
-            padding: 12px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: var(--background-color);
             border-bottom: 1px solid var(--medium-gray);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
-        
-        .header-container {
+        header .container {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
+            padding: 15px 0;
         }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
+        .logo img {
+            width: 180px;
+            height: auto;
         }
-        
-        .logo span {
-            color: var(--dark);
-        }
-        
-        .logo i {
-            color: var(--primary);
-            margin-right: 10px;
-            font-size: 22px;
-        }
-        
         nav ul {
-            display: flex;
             list-style: none;
+            display: flex;
         }
-        
-        nav ul li {
+        nav li {
             margin-left: 30px;
         }
-        
-        nav ul li a {
-            color: var(--dark);
+        nav a {
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            padding: 8px 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
-        
-        nav ul li a:hover {
-            color: var(--primary);
+        nav a:hover {
+            color: var(--secondary-color);
         }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-menu {
+        /* Mobile navigation toggle */
+        .menu-toggle {
             display: none;
-            font-size: 24px;
-            color: var(--dark);
+            font-size: 28px;
             cursor: pointer;
         }
-        
-        /* Hero Section */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--background-color);
+                border-top: 1px solid var(--medium-gray);
+                display: none;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            nav li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Hero section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            position: relative;
+            background-image: url('hero-bg.png');
             background-size: cover;
             background-position: center;
-            padding: 180px 0 100px;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-            color: white;
+            color: var(--background-color);
+            padding: 120px 0;
         }
-        
+        .hero::before {
+            /* dark overlay to ensure legibility of text */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
         .hero-content {
             position: relative;
             z-index: 1;
             max-width: 800px;
             margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
         }
-        
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            line-height: 1.3;
-            color: var(--light);
+            font-weight: 700;
         }
-        
-        .hero h1 span {
-            color: var(--primary);
-        }
-        
         .hero p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
         }
-        
-        .hero-btns {
+        .hero .btn-group {
             display: flex;
-            gap: 15px;
             justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid var(--background-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-primary {
+            background-color: var(--background-color);
+            color: var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: var(--light-gray);
+        }
         .btn-secondary {
             background: transparent;
-            border: 1px solid var(--light);
-            color: var(--light);
-            box-shadow: none;
+            color: var(--background-color);
         }
-        
         .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
         }
-        
-        /* Security Animation Section - REMOVED ANIMATION */
-        .security-stats {
+
+        /* Warning/awareness section highlighting cyber attack statistics */
+        .warning-section {
             background-color: var(--light-gray);
-            padding: 80px 0;
+            padding: 60px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid var(--medium-gray);
         }
-        
-        .animation-container {
-            position: relative;
-            margin: 40px auto;
-            max-width: 800px;
-            border-radius: 4px;
-            overflow: hidden;
-            border: 1px solid var(--medium-gray);
-            background: var(--card-bg);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            padding: 60px 40px;
-        }
-        
-        .stat-content h2 {
+        .warning-section h2 {
             font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+            margin-bottom: 10px;
         }
-        
-        .stat-content p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: var(--dark-gray);
+        .warning-section p {
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            color: var(--secondary-color);
         }
-        
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background-color: var(--light);
-            border-bottom: 1px solid var(--medium-gray);
+        .warning-section .btn-warning {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid var(--primary-color);
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
-        
-        .section-header {
+        .warning-section .btn-warning:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Section titles */
+        h2.section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
             text-align: center;
+        }
+        p.section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: var(--secondary-color);
+        }
+
+        /* Services navigation within the services section */
+        .services-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .services-nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        .services-nav a:hover {
+            border-color: var(--primary-color);
+        }
+
+        /* Service categories */
+        .service-category {
             margin-bottom: 60px;
         }
-        
-        .section-header h2 {
-            font-size: 2.2rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
+        .service-category h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            text-align: left;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
         }
-        
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-header p {
-            color: var(--dark-gray);
-            max-width: 700px;
-            margin: 20px auto 0;
-        }
-        
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .tab-btn {
-            background: transparent;
-            color: var(--dark-gray);
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            border-bottom: 2px solid transparent;
-        }
-        
-        .tab-btn.active, .tab-btn:hover {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-        }
-        
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
         }
-        
         .service-card {
-            background: var(--card-bg);
-            border-radius: 4px;
-            padding: 30px;
-            transition: var(--transition);
+            background-color: var(--card-bg);
+            padding: 20px;
             border: 1px solid var(--medium-gray);
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-            border-color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
-        
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--light-gray);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
-            color: var(--primary);
+        .service-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
-        
-        .service-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
         .service-card p {
-            color: var(--dark-gray);
-            font-size: 15px;
+            font-size: 0.95rem;
+            color: var(--secondary-color);
         }
-        
-        /* About Section */
+
+        /* About section styling */
         .about {
-            padding: 100px 0;
             background-color: var(--light-gray);
-            border-bottom: 1px solid var(--medium-gray);
+            padding: 80px 0;
         }
-        
         .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .about-text h2 span {
-            color: var(--primary);
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            color: var(--dark-gray);
-        }
-        
-        .stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .stat-item {
             text-align: center;
-            flex: 1;
-            min-width: 120px;
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 4px;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .stat {
+            background-color: var(--background-color);
+            padding: 30px;
+            border-radius: 6px;
             border: 1px solid var(--medium-gray);
+            text-align: center;
         }
-        
-        .stat-item h3 {
-            font-size: 2.2rem;
-            color: var(--primary);
+        .stat h3 {
+            font-size: 2rem;
             margin-bottom: 5px;
+            font-weight: 700;
         }
-        
-        .stat-item p {
-            color: var(--dark-gray);
-            font-size: 14px;
+        .stat p {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
         }
-        
-        /* Contact Section */
+
+        /* Contact section styling */
         .contact {
-            padding: 100px 0;
-            background-color: var(--light);
+            padding: 80px 0;
         }
-        
         .contact-container {
             display: flex;
-            gap: 50px;
+            flex-wrap: wrap;
+            gap: 40px;
         }
-        
         .contact-info {
-            flex: 1;
+            flex: 1 1 300px;
         }
-        
-        .contact-info h2 {
-            font-size: 2.2rem;
+        .contact-info h3 {
+            font-size: 1.6rem;
             margin-bottom: 20px;
         }
-        
-        .contact-info p {
-            color: var(--dark-gray);
-            margin-bottom: 30px;
-        }
-        
-        .contact-details {
-            margin-top: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
+        .info-item {
             margin-bottom: 20px;
         }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--light-gray);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: var(--primary);
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-        
-        .contact-text h4 {
-            font-size: 18px;
+        .info-item span {
+            display: block;
+            font-weight: bold;
             margin-bottom: 5px;
-            color: var(--primary);
         }
-        
-        .contact-text p, .contact-text a {
-            margin: 0;
-            color: var(--dark-gray);
-            text-decoration: none;
-            display: block;
-            transition: var(--transition);
-        }
-        
-        .contact-text a:hover {
-            color: var(--primary);
-        }
-        
         .contact-form {
-            flex: 1;
-            background: var(--card-bg);
-            border-radius: 4px;
-            padding: 30px;
-            border: 1px solid var(--medium-gray);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 10px 12px;
-            background: var(--light);
-            border: 1px solid var(--medium-gray);
-            border-radius: 4px;
-            color: var(--dark);
-            font-size: 15px;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
+            flex: 1 1 300px;
             background-color: var(--light-gray);
-            padding: 70px 0 30px;
-            border-top: 1px solid var(--medium-gray);
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid var(--medium-gray);
         }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+        .contact-form h3 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
         }
-        
-        .footer-col h4 {
-            font-size: 20px;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: 0;
-            left: 0;
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col ul li {
+        .contact-form .form-group {
             margin-bottom: 15px;
         }
-        
-        .footer-col ul li a {
-            color: var(--dark-gray);
-            text-decoration: none;
-            transition: var(--transition);
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
         }
-        
-        .footer-col ul li a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid var(--medium-gray);
-            color: var(--dark-gray);
-            font-size: 14px;
-        }
-        
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            padding: 15px 25px;
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--medium-gray);
             border-radius: 4px;
-            background: var(--card-bg);
-            color: var(--dark);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-            z-index: 10000;
-            transform: translateX(120%);
-            transition: transform 0.4s ease;
-            border-left: 4px solid var(--primary);
-            display: flex;
-            align-items: center;
+            font-size: 0.95rem;
+            background-color: var(--background-color);
         }
-        
-        .notification.show {
-            transform: translateX(0);
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
         }
-        
-        .notification.success {
-            border-left-color: var(--secondary);
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        
-        .notification.error {
-            border-left-color: #d13438;
+        .contact-form button:hover {
+            background-color: var(--secondary-color);
         }
-        
-        .notification i {
-            margin-right: 10px;
-            font-size: 20px;
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--background-color);
+            padding: 40px 0;
+            text-align: center;
         }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero {
-                padding: 150px 0 60px;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero-btns .btn {
-                width: 100%;
-                max-width: 300px;
-                margin-bottom: 10px;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .notification {
-                top: 80px;
-                left: 20px;
-                right: 20px;
-                transform: translateY(-150%);
-            }
-            
-            .notification.show {
-                transform: translateY(0);
-            }
-        }
-        
-        /* Animation */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        /* Loading spinner */
-        .spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(0, 120, 212, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 1s ease-in-out infinite;
-            margin-right: 10px;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        footer p {
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header / Navigation -->
     <header>
-        <div class="container header-container">
-            <a href="#" class="logo"><i class="fas fa-shield-alt"></i>MACK <span>Technologies</span></a>
-            <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="blob.png" alt="MACK Technologies logo">
+            </div>
+            <nav id="navLinks">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#services">Services & Products</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
+            <div class="menu-toggle" id="menuToggle">&#9776;</div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
             <div class="hero-content">
-                <h1>Secure Your Digital <span>Future</span> with MACK Technologies</h1>
-                <p>Australia's leading Technology provider, bringing IT experts together to deliver responsive, reliable and effective IT solutions to solve and support all of your technology challenges. Serving Perth businesses with comprehensive IT support, cybersecurity solutions, and network services since 2008.</p>
-                <div class="hero-btns">
-                    <a href="#services" class="btn">Explore Services</a>
+                <h1>Secure Your Digital Future with MACK Technologies</h1>
+                <!-- Updated tagline: change geographic qualifier from Perth to Australia as requested by the client. -->
+                <p>Australia's leading provider of IT, cybersecurity, network and cloud services. Our experts deliver responsive, reliable and innovative technology solutions to help your business thrive.</p>
+                <div class="btn-group">
+                    <a href="#services" class="btn btn-primary">Explore Services</a>
                     <a href="#contact" class="btn btn-secondary">Contact Us</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Security Animation Section - ANIMATION REMOVED -->
-    <section class="security-stats">
-        <div class="container">
-            <div class="animation-container">
-                <div class="stat-content">
-                    <h2>43% of Australian Businesses Attacked</h2>
-                    <p>In the past year, nearly half of Australian businesses experienced a cyber attack. Don't become a statistic. Our comprehensive cybersecurity solutions protect Perth businesses from evolving threats.</p>
-                    <a href="#contact" class="btn">Protect Your Business Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Cyber attack awareness section highlighting the prevalence of attacks on Australian businesses -->
+        <section class="warning-section">
+            <h2>43% of Australian Businesses Attacked</h2>
+            <p>In the past year, nearly half of Australian businesses experienced a cyber attack. Don’t become a statistic. Our comprehensive cybersecurity solutions protect businesses from evolving threats.</p>
+            <a href="#contact" class="btn-warning">Protect Your Business Now</a>
+        </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Services & Products</h2>
-                <p>MACK Technologies, Perth's leading IT solutions provider, brings together certified experts to deliver responsive, reliable technology services. We specialize in cybersecurity, cloud migration, network infrastructure, and managed IT services to solve your daily technology challenges.</p>
+        <!-- Services Section -->
+        <section id="services" class="services container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">MACK Technologies offers a full suite of IT solutions designed to keep your business secure, connected and productive. Explore our core offerings below.</p>
+            <div class="services-nav">
+                <a href="#cloud">Cloud Solutions</a>
+                <a href="#security">Security Solutions</a>
+                <a href="#network">Network Solutions</a>
+                <a href="#managed">Managed Services</a>
+                <a href="#support">IT Support</a>
             </div>
-            
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="cloud">Cloud Solutions</button>
-                <button class="tab-btn" data-tab="security">Security Solutions</button>
-                <button class="tab-btn" data-tab="network">Network Solutions</button>
-                <button class="tab-btn" data-tab="managed">Managed Services</button>
-            </div>
-            
-            <div class="tab-content active" id="cloud-tab">
+
+            <!-- Cloud Solutions -->
+            <section id="cloud" class="service-category">
+                <h3>Cloud Solutions</h3>
                 <div class="services-grid">
-                    <div class="service-card floating">
-                        <div class="service-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h3>Private Cloud</h3>
+                    <div class="service-card">
+                        <h4>Private Cloud</h4>
                         <p>Secure, scalable private cloud solutions tailored to your business requirements.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.2s;">
-                        <div class="service-icon">
-                            <i class="fab fa-microsoft"></i>
-                        </div>
-                        <h3>Microsoft Office 365</h3>
-                        <p>Complete Office 365 solutions including migration, deployment, and management.</p>
+                    <div class="service-card">
+                        <h4>Microsoft Office 365</h4>
+                        <p>Complete Office 365 solutions including migration, deployment and ongoing management.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.4s;">
-                        <div class="service-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3>Hybrid Cloud</h3>
-                        <p>Optimize your infrastructure with a perfect blend of private and public cloud.</p>
+                    <div class="service-card">
+                        <h4>Hybrid Cloud</h4>
+                        <p>Optimize your infrastructure with a perfect blend of private and public cloud services.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.6s;">
-                        <div class="service-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Hosted Exchange</h3>
-                        <p>Professional email hosting with enterprise-grade security and reliability.</p>
+                    <div class="service-card">
+                        <h4>Hosted Exchange</h4>
+                        <p>Professional email hosting with enterprise‑grade security and reliability.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.8s;">
-                        <div class="service-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Data Centres</h3>
-                        <p>State-of-the-art data center solutions with maximum uptime and security.</p>
+                    <div class="service-card">
+                        <h4>Data Centres</h4>
+                        <p>State‑of‑the‑art data centre solutions providing maximum uptime and security.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 1s;">
-                        <div class="service-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Cloud Disaster Recovery</h3>
-                        <p>Ensure business continuity with our robust cloud-based disaster recovery solutions.</p>
+                    <div class="service-card">
+                        <h4>Cloud Disaster Recovery</h4>
+                        <p>Ensure business continuity with our robust cloud‑based disaster recovery solutions.</p>
+                    </div>
+                    <!-- Additional cloud services for modern business needs -->
+                    <div class="service-card">
+                        <h4>Infrastructure as a Service (IaaS)</h4>
+                        <p>On‑demand virtualised computing resources — servers, storage and networking — that scale up or down to meet your workload requirements.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Platform as a Service (PaaS)</h4>
+                        <p>A full development and deployment environment for building applications without the overhead of managing hardware and operating systems.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Software as a Service (SaaS)</h4>
+                        <p>Ready‑to‑use software hosted in the cloud so your team can access applications through a web browser without maintaining servers or updates.</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="tab-content" id="security-tab">
+            </section>
+
+            <!-- Security Solutions -->
+            <section id="security" class="service-category">
+                <h3>Security Solutions</h3>
                 <div class="services-grid">
-                    <div class="service-card floating">
-                        <div class="service-icon">
-                            <i class="fas fa-hdd"></i>
-                        </div>
-                        <h3>Backup & Recovery</h3>
+                    <div class="service-card">
+                        <h4>Backup &amp; Recovery</h4>
                         <p>Comprehensive data protection solutions to safeguard your critical business information.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.2s;">
-                        <div class="service-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h3>Web Security</h3>
+                    <div class="service-card">
+                        <h4>Web Security</h4>
                         <p>Protect your online assets with advanced web security and threat prevention.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.4s;">
-                        <div class="service-icon">
-                            <i class="fas fa-shield-virus"></i>
-                        </div>
-                        <h3>Network Security</h3>
+                    <div class="service-card">
+                        <h4>Network Security</h4>
                         <p>Advanced network security solutions to defend against evolving cyber threats.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.6s;">
-                        <div class="service-icon">
-                            <i class="fas fa-mail-bulk"></i>
-                        </div>
-                        <h3>Email Security</h3>
-                        <p>Protect your organization from phishing, malware, and email-based attacks.</p>
+                    <div class="service-card">
+                        <h4>Email Security</h4>
+                        <p>Protect your organisation from phishing, malware and email‑based attacks.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.8s;">
-                        <div class="service-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>Datawarehouse & Reporting</h3>
-                        <p>Transform your data into actionable insights with our BI solutions.</p>
+                    <div class="service-card">
+                        <h4>Data Warehouse &amp; Reporting</h4>
+                        <p>Transform your data into actionable insights with our business intelligence solutions.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 1s;">
-                        <div class="service-icon">
-                            <i class="fas fa-stream"></i>
-                        </div>
-                        <h3>Business Streamlining</h3>
-                        <p>Optimize your business processes with our technology-driven solutions.</p>
+                    <div class="service-card">
+                        <h4>Business Streamlining</h4>
+                        <p>Optimise your business processes through our technology‑driven solutions.</p>
+                    </div>
+
+                    <!-- Additional security services to strengthen your cyber posture -->
+                    <div class="service-card">
+                        <h4>Identity &amp; Access Management (IAM)</h4>
+                        <p>Manage user identities and enforce granular access policies to protect sensitive company resources.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Next‑Generation Firewalls (NGFW)</h4>
+                        <p>Advanced firewalls that use contextual awareness of users and applications to block sophisticated attacks.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Intrusion Detection &amp; Prevention (IDPS)</h4>
+                        <p>Systems that monitor network traffic and automatically detect and block malicious activity.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>DDoS Protection</h4>
+                        <p>Third‑party mitigation services that identify and block distributed denial‑of‑service attacks to maintain uptime.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Data Loss Prevention (DLP)</h4>
+                        <p>Classify and secure your most sensitive data to prevent accidental or malicious leakage.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Security Information &amp; Event Management (SIEM)</h4>
+                        <p>Centralise security logs and analytics for improved visibility and faster threat detection across your environment.</p>
                     </div>
                 </div>
-            </div>
-            
-            <!-- New Network Solutions Tab -->
-            <div class="tab-content" id="network-tab">
+            </section>
+
+            <!-- Network Solutions -->
+            <section id="network" class="service-category">
+                <h3>Network Solutions</h3>
                 <div class="services-grid">
-                    <div class="service-card floating">
-                        <div class="service-icon">
-                            <i class="fas fa-wrench"></i>
-                        </div>
-                        <h3>Network Support</h3>
+                    <div class="service-card">
+                        <h4>Network Support</h4>
                         <p>24/7 expert network support to ensure optimal performance and minimal downtime.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.2s;">
-                        <div class="service-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3>Network Engineering</h3>
-                        <p>Design and implementation of robust network infrastructures for Perth businesses.</p>
+                    <div class="service-card">
+                        <h4>Network Engineering</h4>
+                        <p>Design and implementation of robust network infrastructures for your business.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.4s;">
-                        <div class="service-icon">
-                            <i class="fas fa-traffic-light"></i>
-                        </div>
-                        <h3>Traffic Engineering</h3>
-                        <p>Optimize network traffic flow and bandwidth utilization for peak performance.</p>
+                    <div class="service-card">
+                        <h4>Traffic Engineering</h4>
+                        <p>Optimise network traffic flow and bandwidth utilisation for peak performance.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.6s;">
-                        <div class="service-icon">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <h3>VPN (SSL VPN)</h3>
-                        <p>Secure remote access solutions with enterprise-grade SSL VPN technology.</p>
+                    <div class="service-card">
+                        <h4>VPN (SSL VPN)</h4>
+                        <p>Secure remote access solutions using enterprise‑grade SSL VPN technology.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.8s;">
-                        <div class="service-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3>Work from Home Network</h3>
-                        <p>Secure and reliable remote work solutions for distributed teams.</p>
+                    <div class="service-card">
+                        <h4>Work from Home Network</h4>
+                        <p>Secure and reliable network solutions enabling productive remote work.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 1s;">
-                        <div class="service-icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <h3>Remote Desktop VPN</h3>
+                    <div class="service-card">
+                        <h4>Remote Desktop VPN</h4>
                         <p>Secure remote desktop access solutions for flexible workforce management.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 1.2s;">
-                        <div class="service-icon">
-                            <i class="fas fa-route"></i>
-                        </div>
-                        <h3>Routing & Switching</h3>
-                        <p>Enterprise-grade routing and switching solutions for optimal network performance.</p>
+                    <div class="service-card">
+                        <h4>Routing &amp; Switching</h4>
+                        <p>Enterprise‑grade routing and switching solutions for optimal network performance.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 1.4s;">
-                        <div class="service-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3>Local Area Network</h3>
-                        <p>Design and implementation of high-performance LAN infrastructure.</p>
+                    <div class="service-card">
+                        <h4>Local Area Network</h4>
+                        <p>Design and implementation of high‑performance LAN infrastructure.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 1.6s;">
-                        <div class="service-icon">
-                            <i class="fas fa-globe-asia"></i>
-                        </div>
-                        <h3>Wide Area Network</h3>
+                    <div class="service-card">
+                        <h4>Wide Area Network</h4>
                         <p>Scalable WAN solutions connecting multiple locations securely.</p>
                     </div>
+
+                    <!-- Additional network services for enhanced connectivity and security -->
+                    <div class="service-card">
+                        <h4>Network Access Control (NAC)</h4>
+                        <p>Enforce device and user policies to manage who and what can access your network.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Managed Detection &amp; Response (MDR)</h4>
+                        <p>Outsource threat detection and incident response to specialized teams that monitor your network 24/7.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Endpoint &amp; Network Detection (EDR/NDR)</h4>
+                        <p>AI/ML‑powered monitoring of endpoints and network traffic for anomalies and rapid incident response.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Segmentation &amp; Micro‑Segmentation</h4>
+                        <p>Divide your network into secure zones to limit lateral movement and enforce zero‑trust rules.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Secure Access Service Edge (SASE)</h4>
+                        <p>Combine SD‑WAN and zero‑trust security delivered from the cloud for secure remote access everywhere.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="tab-content" id="managed-tab">
+            </section>
+
+            <!-- Managed Services -->
+            <section id="managed" class="service-category">
+                <h3>Managed Services</h3>
                 <div class="services-grid">
-                    <div class="service-card floating">
-                        <div class="service-icon">
-                            <i class="fas fa-key"></i>
-                        </div>
-                        <h3>Software Licensing</h3>
-                        <p>Comprehensive software licensing solutions to ensure compliance and cost efficiency.</p>
+                    <!-- Each card describes a key managed service offering for business technology needs -->
+                    <div class="service-card">
+                        <h4>Software Licensing</h4>
+                        <p>Comprehensive software licensing solutions that help your organisation remain compliant and optimise costs by carefully tracking usage and rights.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.2s;">
-                        <div class="service-icon">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <h3>Hardware Purchasing</h3>
-                        <p>Source the best hardware solutions tailored to your business needs.</p>
+                    <div class="service-card">
+                        <h4>Hardware Purchasing</h4>
+                        <p>Source the best hardware solutions tailored to your business needs. We handle procurement of computers, servers and networking equipment to ensure high‑quality hardware meets your operational and budgetary requirements.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.4s;">
-                        <div class="service-icon">
-                            <i class="fas fa-drafting-compass"></i>
-                        </div>
-                        <h3>Technical Design & Integration</h3>
-                        <p>Expert design and seamless integration of complex IT infrastructures.</p>
+                    <div class="service-card">
+                        <h4>Technical Design &amp; Integration</h4>
+                        <p>Expert design and seamless integration of complex IT infrastructures, ensuring that new technologies align with your existing environment for maximum efficiency.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.6s;">
-                        <div class="service-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3>Managed IT Services</h3>
-                        <p>Proactive IT management to keep your systems running smoothly 24/7.</p>
+                    <div class="service-card">
+                        <h4>Managed IT Services</h4>
+                        <p>Proactive IT management and 24/7 monitoring by skilled specialists to keep your systems running smoothly and ahead of the demands of the modern workplace.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 0.8s;">
-                        <div class="service-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h3>IT Project Management</h3>
-                        <p>Expert project management for seamless technology implementation.</p>
+                    <div class="service-card">
+                        <h4>IT Project Management</h4>
+                        <p>Experienced project managers who align technology initiatives with business goals, rigorously manage risks and timelines, and ensure seamless project execution.</p>
                     </div>
-                    
-                    <div class="service-card floating" style="animation-delay: 1s;">
-                        <div class="service-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <h3>Voice over Internet (VOIP)</h3>
-                        <p>Modern communication solutions with enterprise-grade VoIP systems.</p>
+                    <div class="service-card">
+                        <h4>Voice over Internet (VoIP)</h4>
+                        <p>Modern communication solutions using enterprise‑grade VoIP systems that transmit voice calls as digital data packets over IP networks for flexibility, scalability and unified communications.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Why Choose <span>MACK Technologies</span></h2>
-                    <p>Through MACK Technologies' extensive IT services capability we will help you get more out of your IT to achieve better business outcomes. As Perth's trusted IT partner since 2008, we've helped hundreds of businesses transform their technology infrastructure.</p>
-                    <p>Our experienced team provides organizations with IT services including design, implementation, and management. Every business has unique IT challenges, and we develop reliable, secure, innovative IT solutions tailored to your specific needs. With certified engineers specializing in cybersecurity, cloud solutions, and network infrastructure, we're equipped to handle Perth's most complex IT environments.</p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h3>15+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>500+</h3>
-                            <p>Clients Served</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>24/7</h3>
-                            <p>Support</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>99.9%</h3>
-                            <p>Uptime Guarantee</p>
-                        </div>
+            <!-- IT Support (new) -->
+            <section id="support" class="service-category">
+                <h3>IT Support</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h4>Remote IT Support</h4>
+                        <p>Technicians remotely connect to your devices to diagnose and resolve issues without physical presence, saving time and money.</p>
                     </div>
-                    <a href="#contact" class="btn">Get in Touch</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get in Touch</h2>
-                <p>Have questions or ready to transform your IT infrastructure? Contact our team of experts today for a free consultation on our Perth IT services, cybersecurity solutions, and network engineering capabilities.</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Contact Information</h2>
-                    <p>Reach out to us for any inquiries or support. Our team is ready to assist you with all your IT needs. We serve businesses across Perth and Western Australia with responsive IT solutions.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Address</h4>
-                                <p>St George Terrace, Perth WA 6000</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <a href="tel:+61406913375">+61 406 913 375</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <a href="mailto:support@macktechnologies.com.au">support@macktechnologies.com.au</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-id-card"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>ABN</h4>
-                                <p>14262083925</p>
-                            </div>
-                        </div>
+                    <div class="service-card">
+                        <h4>IT Help Desk Support</h4>
+                        <p>A centralised service to handle technical support requests, acting as the first point of contact with a ticketing system and multi‑channel support.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Onsite IT Support</h4>
+                        <p>In‑person assistance for hardware problems and complex issues that cannot be resolved remotely.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Monitoring &amp; Maintenance</h4>
+                        <p>Continuous monitoring of IT systems to detect and resolve issues before they disrupt operations.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Data Backup &amp; Recovery</h4>
+                        <p>Professional backup services to protect sensitive data and ensure full recovery of lost or corrupted files.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Network &amp; Cyber Security Support</h4>
+                        <p>Regular network check‑ups and access control to protect data travelling across your network with advanced encryption and endpoint protection.</p>
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm" action="https://formspree.io/f/mrblpboy" method="POST">
-                        <input type="hidden" name="_subject" value="New Enquiry from MACK Technologies Website">
-                        
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" name="service" class="form-control">
-                                <option value="">Select a service</option>
-                                <option value="Remote IT Support">Remote IT Support</option>
-                                <option value="Onsite IT Support">Onsite IT Support</option>
-                                <option value="Cloud Solutions">Cloud Solutions</option>
-                                <option value="Cybersecurity">Cybersecurity</option>
-                                <option value="Network Solutions">Network Solutions</option>
-                                <option value="Migration Services">Migration Services</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" class="form-control" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn" style="width: 100%;" id="submitBtn">
-                            <span class="spinner" id="formSpinner"></span>
-                            <span id="btnText">Send Message</span>
-                        </button>
-                    </form>
+            </section>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Why Choose MACK Technologies</h2>
+                <div class="about-content">
+                    <p>Through our extensive IT capabilities we help you get more from your technology to achieve better business outcomes. Since 2008, we’ve supported hundreds of organisations across Perth and Western Australia with tailored IT solutions covering design, implementation and management. Our certified engineers specialise in cybersecurity, cloud solutions and network infrastructure, equipping us to handle even the most complex environments.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>15+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Clients Served</p>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <p>Support</p>
+                    </div>
+                    <div class="stat">
+                        <h3>99.9%</h3>
+                        <p>Uptime Guarantee</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">Have questions or ready to transform your IT infrastructure? Reach out to our team for a free consultation on our IT support, cybersecurity, network and cloud solutions.</p>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="info-item">
+                            <span>Address</span>
+                            <p>St George Terrace, Perth WA 6000</p>
+                        </div>
+                        <div class="info-item">
+                            <span>Phone</span>
+                            <p><a href="tel:+61406913375" style="color: inherit; text-decoration: none;">+61 406 913 375</a></p>
+                        </div>
+                        <div class="info-item">
+                            <span>Email</span>
+                            <p><a href="mailto:support@macktechnologies.com.au" style="color: inherit; text-decoration: none;">support@macktechnologies.com.au</a></p>
+                        </div>
+                        <div class="info-item">
+                            <span>ABN</span>
+                            <p>14262083925</p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm" action="https://formspree.io/f/mrblpboy" method="POST">
+                            <input type="hidden" name="_subject" value="New Enquiry from MACK Technologies Website">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="Remote IT Support">Remote IT Support</option>
+                                    <option value="Onsite IT Support">Onsite IT Support</option>
+                                    <option value="Cloud Solutions">Cloud Solutions</option>
+                                    <option value="Cybersecurity">Cybersecurity</option>
+                                    <option value="Network Solutions">Network Solutions</option>
+                                    <option value="Migration Services">Migration Services</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h4>MACK Technologies</h4>
-                    <p>Perth's leading provider of IT, cybersecurity, and network solutions, helping businesses transform their technology infrastructure since 2008.</p>
-                    <div class="contact-item" style="margin-top: 20px;">
-                        <div class="contact-icon" style="width: 40px; height: 40px; font-size: 16px;">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <a href="tel:+61406913375">+61 406 913 375</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Remote IT Support</a></li>
-                        <li><a href="#">Onsite IT Support</a></li>
-                        <li><a href="#">Cloud Solutions</a></li>
-                        <li><a href="#">Cybersecurity</a></li>
-                        <li><a href="#">Network Engineering</a></li>
-                        <li><a href="#">Infrastructure</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> St George Terrace, Perth WA 6000</li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+61406913375">+61 406 9133 375</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:support@macktechnologies.com.au">support@macktechnologies.com.au</a></li>
-                        <li><i class="fas fa-id-card"></i> ABN: 14262083925</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 MACK Technologies. All Rights Reserved.</p>
-            </div>
-        </div>
+        <p>&copy; 2025 MACK Technologies. All rights reserved.</p>
     </footer>
 
-    <!-- Notification Element -->
-    <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i>
-        <span id="notificationText"></span>
-    </div>
-
+    <!-- Small script to toggle the mobile navigation menu -->
     <script>
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all buttons and contents
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    tabContents.forEach(c => c.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    btn.classList.add('active');
-                    
-                    // Show corresponding content
-                    const tabId = btn.getAttribute('data-tab');
-                    document.getElementById(`${tabId}-tab`).classList.add('active');
-                });
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Form submission
-            const contactForm = document.getElementById('contactForm');
-            const notification = document.getElementById('notification');
-            const notificationText = document.getElementById('notificationText');
-            const submitBtn = document.getElementById('submitBtn');
-            const btnText = document.getElementById('btnText');
-            const formSpinner = document.getElementById('formSpinner');
-            
-            function showNotification(message, isSuccess = true) {
-                const icon = notification.querySelector('i');
-                notificationText.textContent = message;
-                icon.className = isSuccess ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
-                notification.className = isSuccess ? 'notification success show' : 'notification error show';
-                
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 5000);
-            }
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const message = document.getElementById('message').value;
-                    
-                    // Basic validation
-                    if (!name || !email || !message) {
-                        showNotification('Please fill in all required fields', false);
-                        return;
-                    }
-                    
-                    // Show loading state
-                    submitBtn.disabled = true;
-                    btnText.textContent = 'Sending...';
-                    formSpinner.style.display = 'inline-block';
-                    
-                    try {
-                        const formData = new FormData(contactForm);
-                        const response = await fetch(contactForm.action, {
-                            method: 'POST',
-                            body: formData,
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        });
-                        
-                        if (response.ok) {
-                            showNotification(`Thank you ${name}! Your message has been sent. We'll contact you soon.`, true);
-                            contactForm.reset();
-                        } else {
-                            showNotification('There was a problem sending your message. Please try again.', false);
-                        }
-                    } catch (error) {
-                        showNotification('There was a network error. Please try again.', false);
-                    } finally {
-                        // Reset button state
-                        submitBtn.disabled = false;
-                        btnText.textContent = 'Send Message';
-                        formSpinner.style.display = 'none';
-                    }
-                });
-            }
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks   = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            const ul = navLinks.querySelector('ul');
+            ul.classList.toggle('open');
         });
     </script>
 </body>
