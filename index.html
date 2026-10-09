@@ -1,789 +1,348 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--
-      Meta tags for search engine optimisation.  The description and keyword values
-      succinctly summarise the services offered by MACK Technologies and use
-      geographic qualifiers for better local SEO.  These tags appear in the
-      head of the document so search engines can index them correctly.
-    -->
-    <meta name="description" content="MACK Technologies delivers IT support, cybersecurity, network engineering and cloud solutions to businesses across Perth and Western Australia. Contact our experts for responsive, reliable and secure technology services.">
-    <meta name="keywords" content="IT support, managed IT services, cybersecurity, network solutions, cloud solutions, Perth, Western Australia">
-    <title>MACK Technologies | IT Support, Network &amp; Security Solutions</title>
-    <style>
-        :root {
-            /* Core colours derived from the company logo.  Black is used for
-               primary text and accents, white for backgrounds and large
-               typography.  Subtle greys provide contrast without introducing
-               additional hues. */
-            --primary-color: #000000;
-            --secondary-color: #222222;
-            --background-color: #ffffff;
-            --light-gray: #f7f7f7;
-            --medium-gray: #e0e0e0;
-            --card-bg: #fafafa;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: var(--primary-color);
-            background-color: var(--background-color);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* Container constrains content width for readability on larger screens */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header and navigation styling */
-        header {
-            background-color: var(--background-color);
-            border-bottom: 1px solid var(--medium-gray);
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 0;
-        }
-        .logo img {
-            width: 180px;
-            height: auto;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-        nav li {
-            margin-left: 30px;
-        }
-        nav a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: var(--secondary-color);
-        }
-        /* Mobile navigation toggle */
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-        }
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background-color: var(--background-color);
-                border-top: 1px solid var(--medium-gray);
-                display: none;
-            }
-            nav ul.open {
-                display: flex;
-            }
-            nav li {
-                margin: 15px 0;
-                text-align: center;
-            }
-            .menu-toggle {
-                display: block;
-            }
-        }
-
-        /* Hero section */
-        .hero {
-            position: relative;
-            background-image: url('hero-bg.png');
-            background-size: cover;
-            background-position: center;
-            color: var(--background-color);
-            padding: 120px 0;
-        }
-        .hero::before {
-            /* dark overlay to ensure legibility of text */
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 0;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-        }
-        .hero .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border: 1px solid var(--background-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .btn-primary {
-            background-color: var(--background-color);
-            color: var(--primary-color);
-        }
-        .btn-primary:hover {
-            background-color: var(--light-gray);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--background-color);
-        }
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Warning/awareness section highlighting cyber attack statistics */
-        .warning-section {
-            background-color: var(--light-gray);
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .warning-section h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .warning-section p {
-            font-size: 1rem;
-            max-width: 700px;
-            margin: 0 auto 20px auto;
-            color: var(--secondary-color);
-        }
-        .warning-section .btn-warning {
-            display: inline-block;
-            padding: 12px 30px;
-            border: 1px solid var(--primary-color);
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .warning-section .btn-warning:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Section titles */
-        h2.section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        p.section-subtitle {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-            color: var(--secondary-color);
-        }
-
-        /* Services navigation within the services section */
-        .services-nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-        .services-nav a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: bold;
-            padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s ease;
-        }
-        .services-nav a:hover {
-            border-color: var(--primary-color);
-        }
-
-        /* Service categories */
-        .service-category {
-            margin-bottom: 60px;
-        }
-        .service-category h3 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            text-align: left;
-            border-left: 4px solid var(--primary-color);
-            padding-left: 10px;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .service-card {
-            background-color: var(--card-bg);
-            padding: 20px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 6px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-        .service-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .service-card p {
-            font-size: 0.95rem;
-            color: var(--secondary-color);
-        }
-
-        /* About section styling */
-        .about {
-            background-color: var(--light-gray);
-            padding: 80px 0;
-        }
-        .about-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-        }
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-        .stat {
-            background-color: var(--background-color);
-            padding: 30px;
-            border-radius: 6px;
-            border: 1px solid var(--medium-gray);
-            text-align: center;
-        }
-        .stat h3 {
-            font-size: 2rem;
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-        .stat p {
-            font-size: 0.9rem;
-            color: var(--secondary-color);
-        }
-
-        /* Contact section styling */
-        .contact {
-            padding: 80px 0;
-        }
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-        .contact-info {
-            flex: 1 1 300px;
-        }
-        .contact-info h3 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-        }
-        .info-item {
-            margin-bottom: 20px;
-        }
-        .info-item span {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .contact-form {
-            flex: 1 1 300px;
-            background-color: var(--light-gray);
-            padding: 30px;
-            border-radius: 6px;
-            border: 1px solid var(--medium-gray);
-        }
-        .contact-form h3 {
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-        .contact-form .form-group {
-            margin-bottom: 15px;
-        }
-        .contact-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        .contact-form input,
-        .contact-form select,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 4px;
-            font-size: 0.95rem;
-            background-color: var(--background-color);
-        }
-        .contact-form textarea {
-            height: 120px;
-            resize: vertical;
-        }
-        .contact-form button {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .contact-form button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            color: var(--background-color);
-            padding: 40px 0;
-            text-align: center;
-        }
-        footer p {
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Support &amp; Cybersecurity Perth | MACK Technologies</title>
+  <meta name="description" content="Perth IT support, managed services and cybersecurity since 2008. Fortinet, Cisco and Microsoft specialists across Western Australia. 24/7 support.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://macktechnologies.com.au/">
+  <meta name="geo.region" content="AU-WA">
+  <meta name="geo.placename" content="Perth">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MACK Technologies">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:title" content="IT Support &amp; Cybersecurity Perth | MACK Technologies">
+  <meta property="og:description" content="Perth IT support, managed services and cybersecurity since 2008. Fortinet, Cisco and Microsoft specialists across Western Australia. 24/7 support.">
+  <meta property="og:url" content="https://macktechnologies.com.au/">
+  <meta property="og:image" content="https://macktechnologies.com.au/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "@id": "https://macktechnologies.com.au/#business", "name": "MACK Technologies", "url": "https://macktechnologies.com.au/", "logo": "https://macktechnologies.com.au/icon-512.png", "image": "https://macktechnologies.com.au/og-image.jpg", "telephone": "+61406913375", "email": "support@macktechnologies.com.au", "foundingDate": "2008", "priceRange": "$$", "address": {"@type": "PostalAddress", "streetAddress": "St Georges Terrace", "addressLocality": "Perth", "addressRegion": "WA", "postalCode": "6000", "addressCountry": "AU"}, "geo": {"@type": "GeoCoordinates", "latitude": -31.9553, "longitude": 115.8567}, "areaServed": [{"@type": "City", "name": "Perth"}, {"@type": "State", "name": "Western Australia"}], "taxID": "14262083925", "knowsAbout": ["IT support", "Managed IT services", "Cybersecurity", "Network engineering", "Cloud computing", "Fortinet", "FortiGate", "Cisco", "Cisco Meraki", "Microsoft 365", "Microsoft Azure", "Microsoft Intune"], "description": "IT support, cybersecurity, network engineering and cloud services for businesses across Perth and Western Australia, specialising in Fortinet, Cisco and Microsoft.", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "IT services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Solutions", "url": "https://macktechnologies.com.au/cloud-solutions.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Security Solutions", "url": "https://macktechnologies.com.au/security-solutions.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Network Solutions", "url": "https://macktechnologies.com.au/network-solutions.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Managed Services", "url": "https://macktechnologies.com.au/managed-services.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Support", "url": "https://macktechnologies.com.au/it-support.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fortinet", "url": "https://macktechnologies.com.au/fortinet.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cisco", "url": "https://macktechnologies.com.au/cisco.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Microsoft", "url": "https://macktechnologies.com.au/microsoft.html"}}]}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://macktechnologies.com.au/#website", "url": "https://macktechnologies.com.au/", "name": "MACK Technologies", "inLanguage": "en-AU", "publisher": {"@id": "https://macktechnologies.com.au/#business"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you provide IT support across Western Australia?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Most support is delivered remotely, so we can help businesses anywhere in WA. Onsite visits are available across Perth. For regional sites, talk to us about the options."}}, {"@type": "Question", "name": "Do you work with Fortinet, Cisco and Microsoft?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Our engineers design, deploy and support Fortinet firewalls and SD-WAN, Cisco and Meraki networks, and Microsoft 365 and Azure."}}, {"@type": "Question", "name": "Do you offer managed IT services on a monthly fee?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Managed services cover monitoring, maintenance, support and planning for a predictable monthly cost. Ask us for a quote based on your users and devices."}}, {"@type": "Question", "name": "How do we get help in an emergency?", "acceptedAnswer": {"@type": "Answer", "text": "Call 0406 913 375. Support is available 24/7."}}]}</script>
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="blob.png" alt="MACK Technologies logo">
-            </div>
-            <nav id="navLinks">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="menuToggle">&#9776;</div>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="utility">
+  <div class="wrap">
+    <span>24/7 support: <a href="tel:+61406913375">0406 913 375</a></span>
+    <ul>
+      <li class="hide-sm"><a href="mailto:support@macktechnologies.com.au?subject=Support%20request">Email support</a></li>
+      <li><a href="index.html#contact">Get a quote</a></li>
+    </ul>
+  </div>
+</div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="MACK Technologies home"><img src="blob.png" alt="MACK Technologies" width="148" height="54"></a>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li class="has-menu" data-open="false">
+          <button aria-expanded="false" aria-controls="services-menu">Services <svg class="caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          <div class="submenu" id="services-menu">
+            <ul class="submenu-col"><li><h3>Services</h3></li>
+              <li><a href="cloud-solutions.html">Cloud Solutions<small>Microsoft 365, private and hybrid cloud, hosting and disaster recovery.</small></a></li>
+              <li><a href="security-solutions.html">Security Solutions<small>Firewalls, detection and response, email and identity security.</small></a></li>
+              <li><a href="network-solutions.html">Network Solutions<small>Design, engineering and support for LAN, WAN, Wi-Fi and remote access.</small></a></li>
+              <li><a href="managed-services.html">Managed Services<small>Proactive management, projects, procurement, licensing and VoIP.</small></a></li>
+              <li><a href="it-support.html">IT Support<small>Help desk, remote and onsite support, monitoring and backups.</small></a></li>
+            </ul>
+            <ul class="submenu-col"><li><h3>Technologies</h3></li>
+              <li><a href="fortinet.html">Fortinet<small>FortiGate firewalls, Secure SD-WAN, FortiSASE, switching and Wi-Fi.</small></a></li>
+              <li><a href="cisco.html">Cisco<small>Catalyst and Meraki switching, Wi-Fi, routing, Duo and Umbrella.</small></a></li>
+              <li><a href="microsoft.html">Microsoft<small>Microsoft 365, Entra ID, Intune, Defender, Azure and Copilot.</small></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="fortinet.html">Fortinet</a></li>
+        <li><a href="cisco.html">Cisco</a></li>
+        <li><a href="microsoft.html">Microsoft</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-dark header-call" href="tel:+61406913375">Call 0406 913 375</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="display">IT support and cybersecurity for Perth businesses</h1>
+        <p class="lede">Since 2008, MACK Technologies has kept businesses across Western Australia secure and connected, with specialist engineering in Fortinet, Cisco and Microsoft.</p>
+        <div class="btn-row">
+          <a class="btn btn-light" href="#contact">Book a free consultation</a>
+          <a class="btn btn-outline-light" href="#services">See our services</a>
         </div>
-    </header>
+        <ul class="hero-facts">
+          <li><strong>Since 2008</strong>Perth based</li>
+          <li><strong>500+</strong>clients supported</li>
+          <li><strong>24/7</strong>support and monitoring</li>
+        </ul>
+      </div>
+      <aside class="spotlight" data-spotlight aria-roledescription="carousel" aria-label="Technologies we specialise in">
+        <div class="spotlight-head">
+          <p>Technologies we specialise in</p>
+          <div class="spot-controls">
+            <button type="button" data-prev aria-label="Previous"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2L4 7l5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+            <button type="button" data-next aria-label="Next"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          </div>
+        </div>
+        <div aria-live="polite">
+          <div class="slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 3">
+            <h2>Fortinet</h2>
+            <p>FortiGate firewalls, Secure SD-WAN, FortiSASE, switching and Wi-Fi.</p>
+            <a class="btn btn-dark" href="fortinet.html">Explore Fortinet services</a>
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+            <h2>Cisco</h2>
+            <p>Catalyst and Meraki switching, Wi-Fi, routing, Duo and Umbrella.</p>
+            <a class="btn btn-dark" href="cisco.html">Explore Cisco services</a>
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+            <h2>Microsoft</h2>
+            <p>Microsoft 365, Entra ID, Intune, Defender, Azure and Copilot.</p>
+            <a class="btn btn-dark" href="microsoft.html">Explore Microsoft services</a>
+          </div>
+        </div>
+        <div class="spot-dots"><button aria-label="Show Fortinet" aria-current="true"></button><button aria-label="Show Cisco" aria-current="false"></button><button aria-label="Show Microsoft" aria-current="false"></button></div>
+      </aside>
+    </div>
+  </section>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Secure Your Digital Future with MACK Technologies</h1>
-                <!-- Updated tagline: change geographic qualifier from Perth to Australia as requested by the client. -->
-                <p>Australia's leading provider of IT, cybersecurity, network and cloud services. Our experts deliver responsive, reliable and innovative technology solutions to help your business thrive.</p>
-                <div class="btn-group">
-                    <a href="#services" class="btn btn-primary">Explore Services</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
-                </div>
-            </div>
-        </section>
+  <section class="threat" aria-labelledby="threat-title">
+    <div class="wrap">
+      <p class="threat-figure" aria-hidden="true">6<small>minutes</small></p>
+      <div>
+        <h2 id="threat-title">A cybercrime is reported in Australia about every six minutes.</h2>
+        <p>For small businesses, the average reported cost of a cybercrime was $56,600 in 2024–25, up 14% on the year before. Most attacks start with something preventable: a phishing email, a reused password or an unpatched system.</p>
+        <a class="btn btn-dark" href="security-solutions.html">See how we protect businesses</a>
+        <span class="source">Source: <a href="https://www.cyber.gov.au/about-us/view-all-content/reports-and-statistics/annual-cyber-threat-report-2024-2025" rel="noopener">ASD Annual Cyber Threat Report 2024–25</a></span>
+      </div>
+    </div>
+  </section>
 
-        <!-- Cyber attack awareness section highlighting the prevalence of attacks on Australian businesses -->
-        <section class="warning-section">
-            <h2>43% of Australian Businesses Attacked</h2>
-            <p>In the past year, nearly half of Australian businesses experienced a cyber attack. Don’t become a statistic. Our comprehensive cybersecurity solutions protect businesses from evolving threats.</p>
-            <a href="#contact" class="btn-warning">Protect Your Business Now</a>
-        </section>
+  <section class="section" id="technologies" aria-labelledby="tech-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display" id="tech-title">Fortinet, Cisco and Microsoft specialists</h2>
+        <p class="section-intro">We focus on three platforms and know them deeply, so your firewall, network and Microsoft 365 are designed to work together.</p>
+      </div>
+      <div class="tech-grid">
+        <a class="tech-card" href="fortinet.html">
+          <span class="wordmark">Fortinet</span>
+          <p>FortiGate firewalls, Secure SD-WAN, FortiSASE, switching and Wi-Fi.</p>
+          <ul><li>FortiGate next-generation firewalls</li><li>Secure SD-WAN for multi-site businesses</li><li>FortiSASE and ZTNA for remote staff</li><li>FortiSwitch and FortiAP managed from one place</li></ul>
+          <span class="go">Fortinet services</span>
+        </a>
+        <a class="tech-card" href="cisco.html">
+          <span class="wordmark">Cisco</span>
+          <p>Catalyst and Meraki switching, Wi-Fi, routing, Duo and Umbrella.</p>
+          <ul><li>Catalyst and Meraki switching</li><li>Enterprise Wi-Fi design and surveys</li><li>Routing and SD-WAN</li><li>Duo MFA and Umbrella web security</li></ul>
+          <span class="go">Cisco services</span>
+        </a>
+        <a class="tech-card" href="microsoft.html">
+          <span class="wordmark">Microsoft</span>
+          <p>Microsoft 365, Entra ID, Intune, Defender, Azure and Copilot.</p>
+          <ul><li>Microsoft 365 migration and support</li><li>Entra ID, MFA and conditional access</li><li>Intune device management and Autopilot</li><li>Azure, Azure Virtual Desktop and backup</li></ul>
+          <span class="go">Microsoft services</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <!-- Services Section -->
-        <section id="services" class="services container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">MACK Technologies offers a full suite of IT solutions designed to keep your business secure, connected and productive. Explore our core offerings below.</p>
-            <div class="services-nav">
-                <a href="#cloud">Cloud Solutions</a>
-                <a href="#security">Security Solutions</a>
-                <a href="#network">Network Solutions</a>
-                <a href="#managed">Managed Services</a>
-                <a href="#support">IT Support</a>
-            </div>
+  <section class="section bg-light" id="business-size" aria-labelledby="size-title">
+    <div class="wrap">
+      <div class="section-head"><h2 class="display" id="size-title">Solutions for your business</h2></div>
+      <div class="tablist" role="tablist" aria-label="Business size"><button role="tab" id="tab-small" aria-controls="panel-small" aria-selected="true" tabindex="0">Small business</button><button role="tab" id="tab-growing" aria-controls="panel-growing" aria-selected="false" tabindex="-1">Growing business</button><button role="tab" id="tab-enterprise" aria-controls="panel-enterprise" aria-selected="false" tabindex="-1">Multi-site and enterprise</button></div>
+      <div class="tabpanel" role="tabpanel" id="panel-small" aria-labelledby="tab-small">
+        <div><h3>IT that just works, without an IT department</h3><p>Reliable support, secure Microsoft 365 and solid backups, so your team can get on with the job.</p><a class="btn btn-dark" href="#contact">Find out how we can help</a></div>
+        <ul class="link-list"><li><a href="it-support.html">IT Support <span>help desk and onsite</span></a></li><li><a href="microsoft.html">Microsoft 365 <span>email, files and Teams</span></a></li><li><a href="security-solutions.html">Email security and MFA <span>stop phishing</span></a></li><li><a href="fortinet.html">FortiGate firewall <span>protect the office</span></a></li></ul>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="panel-growing" aria-labelledby="tab-growing" hidden>
+        <div><h3>Room to grow without the growing pains</h3><p>Managed services, device management and multi-site networking that scale as you add people and locations.</p><a class="btn btn-dark" href="#contact">Find out how we can help</a></div>
+        <ul class="link-list"><li><a href="managed-services.html">Managed IT Services <span>proactive, fixed monthly</span></a></li><li><a href="microsoft.html">Intune and Entra ID <span>manage every device</span></a></li><li><a href="cisco.html">Cisco Meraki <span>cloud-managed sites</span></a></li><li><a href="fortinet.html">Fortinet SD-WAN <span>connect your offices</span></a></li></ul>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="panel-enterprise" aria-labelledby="tab-enterprise" hidden>
+        <div><h3>Specialist engineering for complex environments</h3><p>Network and security engineering, 24/7 detection and response and project delivery for larger organisations.</p><a class="btn btn-dark" href="#contact">Find out how we can help</a></div>
+        <ul class="link-list"><li><a href="network-solutions.html">Network Engineering <span>design and build</span></a></li><li><a href="security-solutions.html">MDR and SIEM <span>24/7 threat detection</span></a></li><li><a href="fortinet.html">FortiSASE and ZTNA <span>zero-trust access</span></a></li><li><a href="managed-services.html">IT Project Management <span>delivered on time</span></a></li></ul>
+      </div>
+    </div>
+  </section>
 
-            <!-- Cloud Solutions -->
-            <section id="cloud" class="service-category">
-                <h3>Cloud Solutions</h3>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h4>Private Cloud</h4>
-                        <p>Secure, scalable private cloud solutions tailored to your business requirements.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Microsoft Office 365</h4>
-                        <p>Complete Office 365 solutions including migration, deployment and ongoing management.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Hybrid Cloud</h4>
-                        <p>Optimize your infrastructure with a perfect blend of private and public cloud services.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Hosted Exchange</h4>
-                        <p>Professional email hosting with enterprise‑grade security and reliability.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Data Centres</h4>
-                        <p>State‑of‑the‑art data centre solutions providing maximum uptime and security.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Cloud Disaster Recovery</h4>
-                        <p>Ensure business continuity with our robust cloud‑based disaster recovery solutions.</p>
-                    </div>
-                    <!-- Additional cloud services for modern business needs -->
-                    <div class="service-card">
-                        <h4>Infrastructure as a Service (IaaS)</h4>
-                        <p>On‑demand virtualised computing resources — servers, storage and networking — that scale up or down to meet your workload requirements.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Platform as a Service (PaaS)</h4>
-                        <p>A full development and deployment environment for building applications without the overhead of managing hardware and operating systems.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Software as a Service (SaaS)</h4>
-                        <p>Ready‑to‑use software hosted in the cloud so your team can access applications through a web browser without maintaining servers or updates.</p>
-                    </div>
-                </div>
-            </section>
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display" id="services-title">Our IT services</h2>
+        <p class="section-intro">Five areas, one team. Choose a service to see everything it covers.</p>
+      </div>
+      <div class="service-rows">
+        <a class="service-row" href="cloud-solutions.html">
+          <div><h3>Cloud Solutions</h3><p>Microsoft 365, private and hybrid cloud, hosting and disaster recovery.</p></div>
+          <ul><li>Microsoft 365</li><li>Private Cloud</li><li>Hybrid Cloud</li><li>Hosted Exchange</li><li>Data Centres</li><li>Cloud Disaster Recovery</li></ul>
+          <span class="go">View cloud solutions</span>
+        </a>
+        <a class="service-row" href="security-solutions.html">
+          <div><h3>Security Solutions</h3><p>Firewalls, detection and response, email and identity security.</p></div>
+          <ul><li>Next-Generation Firewalls (NGFW)</li><li>Managed Detection &amp; Response (MDR)</li><li>Endpoint &amp; Network Detection (EDR/NDR)</li><li>Email Security</li><li>Identity &amp; Access Management (IAM)</li><li>Secure Access Service Edge (SASE)</li></ul>
+          <span class="go">View security solutions</span>
+        </a>
+        <a class="service-row" href="network-solutions.html">
+          <div><h3>Network Solutions</h3><p>Design, engineering and support for LAN, WAN, Wi-Fi and remote access.</p></div>
+          <ul><li>Network Engineering</li><li>Network Support</li><li>Routing &amp; Switching</li><li>Local Area Network (LAN) &amp; Wi-Fi</li><li>Wide Area Network (WAN) &amp; SD-WAN</li><li>Remote Access VPN</li></ul>
+          <span class="go">View network solutions</span>
+        </a>
+        <a class="service-row" href="managed-services.html">
+          <div><h3>Managed Services</h3><p>Proactive management, projects, procurement, licensing and VoIP.</p></div>
+          <ul><li>Managed IT Services</li><li>IT Project Management</li><li>Technical Design &amp; Integration</li><li>Hardware Purchasing</li><li>Software Licensing</li><li>Voice over IP (VoIP)</li></ul>
+          <span class="go">View managed services</span>
+        </a>
+        <a class="service-row" href="it-support.html">
+          <div><h3>IT Support</h3><p>Help desk, remote and onsite support, monitoring and backups.</p></div>
+          <ul><li>IT Help Desk</li><li>Remote IT Support</li><li>Onsite IT Support</li><li>Monitoring &amp; Maintenance</li><li>Data Backup &amp; Recovery</li><li>Network &amp; Cyber Security Support</li></ul>
+          <span class="go">View IT support</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-            <!-- Security Solutions -->
-            <section id="security" class="service-category">
-                <h3>Security Solutions</h3>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h4>Backup &amp; Recovery</h4>
-                        <p>Comprehensive data protection solutions to safeguard your critical business information.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Web Security</h4>
-                        <p>Protect your online assets with advanced web security and threat prevention.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Network Security</h4>
-                        <p>Advanced network security solutions to defend against evolving cyber threats.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Email Security</h4>
-                        <p>Protect your organisation from phishing, malware and email‑based attacks.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Data Warehouse &amp; Reporting</h4>
-                        <p>Transform your data into actionable insights with our business intelligence solutions.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Business Streamlining</h4>
-                        <p>Optimise your business processes through our technology‑driven solutions.</p>
-                    </div>
+  <section class="section about" id="about" aria-labelledby="about-title">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <h2 class="display" id="about-title">Why businesses choose MACK</h2>
+        <p class="section-intro">We help you get more from your technology, and spend less time thinking about it.</p>
+        <p style="margin-top:28px">Since 2008 we've supported hundreds of organisations across Perth and Western Australia, covering design, implementation and ongoing management.</p>
+        <p>Our certified engineers specialise in Fortinet security, Cisco networking and Microsoft cloud, so one team can handle even complex environments end to end, and you always know who to call.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>15+</strong><span>years in business</span></div>
+        <div class="stat"><strong>500+</strong><span>clients served</span></div>
+        <div class="stat"><strong>24/7</strong><span>support</span></div>
+        <div class="stat"><strong>99.9%</strong><span>uptime guarantee</span></div>
+      </div>
+    </div>
+  </section>
 
-                    <!-- Additional security services to strengthen your cyber posture -->
-                    <div class="service-card">
-                        <h4>Identity &amp; Access Management (IAM)</h4>
-                        <p>Manage user identities and enforce granular access policies to protect sensitive company resources.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Next‑Generation Firewalls (NGFW)</h4>
-                        <p>Advanced firewalls that use contextual awareness of users and applications to block sophisticated attacks.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Intrusion Detection &amp; Prevention (IDPS)</h4>
-                        <p>Systems that monitor network traffic and automatically detect and block malicious activity.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>DDoS Protection</h4>
-                        <p>Third‑party mitigation services that identify and block distributed denial‑of‑service attacks to maintain uptime.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Data Loss Prevention (DLP)</h4>
-                        <p>Classify and secure your most sensitive data to prevent accidental or malicious leakage.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Security Information &amp; Event Management (SIEM)</h4>
-                        <p>Centralise security logs and analytics for improved visibility and faster threat detection across your environment.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Network Solutions -->
-            <section id="network" class="service-category">
-                <h3>Network Solutions</h3>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h4>Network Support</h4>
-                        <p>24/7 expert network support to ensure optimal performance and minimal downtime.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Network Engineering</h4>
-                        <p>Design and implementation of robust network infrastructures for your business.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Traffic Engineering</h4>
-                        <p>Optimise network traffic flow and bandwidth utilisation for peak performance.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>VPN (SSL VPN)</h4>
-                        <p>Secure remote access solutions using enterprise‑grade SSL VPN technology.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Work from Home Network</h4>
-                        <p>Secure and reliable network solutions enabling productive remote work.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Remote Desktop VPN</h4>
-                        <p>Secure remote desktop access solutions for flexible workforce management.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Routing &amp; Switching</h4>
-                        <p>Enterprise‑grade routing and switching solutions for optimal network performance.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Local Area Network</h4>
-                        <p>Design and implementation of high‑performance LAN infrastructure.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Wide Area Network</h4>
-                        <p>Scalable WAN solutions connecting multiple locations securely.</p>
-                    </div>
-
-                    <!-- Additional network services for enhanced connectivity and security -->
-                    <div class="service-card">
-                        <h4>Network Access Control (NAC)</h4>
-                        <p>Enforce device and user policies to manage who and what can access your network.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Managed Detection &amp; Response (MDR)</h4>
-                        <p>Outsource threat detection and incident response to specialized teams that monitor your network 24/7.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Endpoint &amp; Network Detection (EDR/NDR)</h4>
-                        <p>AI/ML‑powered monitoring of endpoints and network traffic for anomalies and rapid incident response.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Segmentation &amp; Micro‑Segmentation</h4>
-                        <p>Divide your network into secure zones to limit lateral movement and enforce zero‑trust rules.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Secure Access Service Edge (SASE)</h4>
-                        <p>Combine SD‑WAN and zero‑trust security delivered from the cloud for secure remote access everywhere.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Managed Services -->
-            <section id="managed" class="service-category">
-                <h3>Managed Services</h3>
-                <div class="services-grid">
-                    <!-- Each card describes a key managed service offering for business technology needs -->
-                    <div class="service-card">
-                        <h4>Software Licensing</h4>
-                        <p>Comprehensive software licensing solutions that help your organisation remain compliant and optimise costs by carefully tracking usage and rights.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Hardware Purchasing</h4>
-                        <p>Source the best hardware solutions tailored to your business needs. We handle procurement of computers, servers and networking equipment to ensure high‑quality hardware meets your operational and budgetary requirements.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Technical Design &amp; Integration</h4>
-                        <p>Expert design and seamless integration of complex IT infrastructures, ensuring that new technologies align with your existing environment for maximum efficiency.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Managed IT Services</h4>
-                        <p>Proactive IT management and 24/7 monitoring by skilled specialists to keep your systems running smoothly and ahead of the demands of the modern workplace.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>IT Project Management</h4>
-                        <p>Experienced project managers who align technology initiatives with business goals, rigorously manage risks and timelines, and ensure seamless project execution.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Voice over Internet (VoIP)</h4>
-                        <p>Modern communication solutions using enterprise‑grade VoIP systems that transmit voice calls as digital data packets over IP networks for flexibility, scalability and unified communications.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- IT Support (new) -->
-            <section id="support" class="service-category">
-                <h3>IT Support</h3>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h4>Remote IT Support</h4>
-                        <p>Technicians remotely connect to your devices to diagnose and resolve issues without physical presence, saving time and money.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>IT Help Desk Support</h4>
-                        <p>A centralised service to handle technical support requests, acting as the first point of contact with a ticketing system and multi‑channel support.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Onsite IT Support</h4>
-                        <p>In‑person assistance for hardware problems and complex issues that cannot be resolved remotely.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Monitoring &amp; Maintenance</h4>
-                        <p>Continuous monitoring of IT systems to detect and resolve issues before they disrupt operations.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Data Backup &amp; Recovery</h4>
-                        <p>Professional backup services to protect sensitive data and ensure full recovery of lost or corrupted files.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>Network &amp; Cyber Security Support</h4>
-                        <p>Regular network check‑ups and access control to protect data travelling across your network with advanced encryption and endpoint protection.</p>
-                    </div>
-                </div>
-            </section>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">Why Choose MACK Technologies</h2>
-                <div class="about-content">
-                    <p>Through our extensive IT capabilities we help you get more from your technology to achieve better business outcomes. Since 2008, we’ve supported hundreds of organisations across Perth and Western Australia with tailored IT solutions covering design, implementation and management. Our certified engineers specialise in cybersecurity, cloud solutions and network infrastructure, equipping us to handle even the most complex environments.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <h3>15+</h3>
-                        <p>Years Experience</p>
-                    </div>
-                    <div class="stat">
-                        <h3>500+</h3>
-                        <p>Clients Served</p>
-                    </div>
-                    <div class="stat">
-                        <h3>24/7</h3>
-                        <p>Support</p>
-                    </div>
-                    <div class="stat">
-                        <h3>99.9%</h3>
-                        <p>Uptime Guarantee</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">Get in Touch</h2>
-                <p class="section-subtitle">Have questions or ready to transform your IT infrastructure? Reach out to our team for a free consultation on our IT support, cybersecurity, network and cloud solutions.</p>
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <div class="info-item">
-                            <span>Address</span>
-                            <p>St George Terrace, Perth WA 6000</p>
-                        </div>
-                        <div class="info-item">
-                            <span>Phone</span>
-                            <p><a href="tel:+61406913375" style="color: inherit; text-decoration: none;">+61 406 913 375</a></p>
-                        </div>
-                        <div class="info-item">
-                            <span>Email</span>
-                            <p><a href="mailto:support@macktechnologies.com.au" style="color: inherit; text-decoration: none;">support@macktechnologies.com.au</a></p>
-                        </div>
-                        <div class="info-item">
-                            <span>ABN</span>
-                            <p>14262083925</p>
-                        </div>
-                    </div>
-                    <div class="contact-form">
-                        <h3>Send Us a Message</h3>
-                        <form id="contactForm" action="https://formspree.io/f/mrblpboy" method="POST">
-                            <input type="hidden" name="_subject" value="New Enquiry from MACK Technologies Website">
-                            <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="service">Service Interested In</label>
-                                <select id="service" name="service">
-                                    <option value="">Select a service</option>
-                                    <option value="Remote IT Support">Remote IT Support</option>
-                                    <option value="Onsite IT Support">Onsite IT Support</option>
-                                    <option value="Cloud Solutions">Cloud Solutions</option>
-                                    <option value="Cybersecurity">Cybersecurity</option>
-                                    <option value="Network Solutions">Network Solutions</option>
-                                    <option value="Migration Services">Migration Services</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button type="submit">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 MACK Technologies. All rights reserved.</p>
-    </footer>
-
-    <!-- Small script to toggle the mobile navigation menu -->
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks   = document.getElementById('navLinks');
-        menuToggle.addEventListener('click', () => {
-            const ul = navLinks.querySelector('ul');
-            ul.classList.toggle('open');
-        });
-    </script>
+  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head"><h2 class="display" id="faq-title">Frequently asked questions</h2></div>
+      <div class="faq">
+        <details><summary>Do you provide IT support across Western Australia?</summary><p>Yes. Most support is delivered remotely, so we can help businesses anywhere in WA. Onsite visits are available across Perth. For regional sites, talk to us about the options.</p></details>
+        <details><summary>Do you work with Fortinet, Cisco and Microsoft?</summary><p>Yes. Our engineers design, deploy and support Fortinet firewalls and SD-WAN, Cisco and Meraki networks, and Microsoft 365 and Azure.</p></details>
+        <details><summary>Do you offer managed IT services on a monthly fee?</summary><p>Yes. Managed services cover monitoring, maintenance, support and planning for a predictable monthly cost. Ask us for a quote based on your users and devices.</p></details>
+        <details><summary>How do we get help in an emergency?</summary><p>Call 0406 913 375. Support is available 24/7.</p></details>
+      </div>
+    </div>
+  </section>
+  <section class="section bg-light" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 class="display" id="contact-title">Talk to an engineer</h2>
+        <p class="section-intro">Ask a quick question, request a callback or get a quote. We usually reply within one business day. For urgent issues, call us.</p>
+        <dl class="contact-details">
+          <div><dt>Phone, 24/7 support</dt><dd><a href="tel:+61406913375">0406 913 375</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:support@macktechnologies.com.au">support@macktechnologies.com.au</a></dd></div>
+          <div><dt>Office</dt><dd>St Georges Terrace, Perth WA 6000</dd></div>
+          <div><dt>ABN</dt><dd>14 262 083 925</dd></div>
+        </dl>
+      </div>
+      <form class="form" action="https://formspree.io/f/mrblpboy" method="POST" style="background:var(--white)">
+        <h3>Send us a message</h3>
+        <input type="hidden" name="_subject" value="New Enquiry from MACK Technologies Website">
+        <fieldset class="enquiry-type">
+          <legend>What would you like to do?</legend>
+          <div class="seg">
+            <input type="radio" id="et-q" name="enquiry_type" value="Quick question" checked><label for="et-q">Ask a question</label>
+            <input type="radio" id="et-c" name="enquiry_type" value="Request a callback"><label for="et-c">Request a callback</label>
+            <input type="radio" id="et-g" name="enquiry_type" value="Get a quote"><label for="et-g">Get a quote</label>
+          </div>
+        </fieldset>
+        <div class="two-col">
+          <div class="field"><label for="name">Full name <span class="req">(required)</span></label><input type="text" id="name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="company">Company</label><input type="text" id="company" name="company" autocomplete="organization"></div>
+        </div>
+        <div class="two-col">
+          <div class="field"><label for="email">Email <span class="req">(required)</span></label><input type="email" id="email" name="email" autocomplete="email" required></div>
+          <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel"></div>
+        </div>
+        <div class="field">
+          <label for="service">What do you need help with?</label>
+          <select id="service" name="service">
+            <option value="">Choose a service</option>
+            <option value="Cloud Solutions">Cloud Solutions</option>
+            <option value="Security Solutions">Security Solutions</option>
+            <option value="Network Solutions">Network Solutions</option>
+            <option value="Managed Services">Managed Services</option>
+            <option value="IT Support">IT Support</option>
+            <option value="Fortinet">Fortinet</option>
+            <option value="Cisco">Cisco</option>
+            <option value="Microsoft">Microsoft</option>
+            <option value="Other">Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message <span class="req" id="message-req">(required)</span></label>
+          <textarea id="message" name="message" placeholder="What would you like to know?" required></textarea>
+        </div>
+        <button class="btn btn-dark" type="submit">Send message</button>
+        <p class="form-note">We'll only use your details to respond to your enquiry.</p>
+      </form>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="logo-white.png" alt="MACK Technologies" width="170" height="46">
+        <p>IT support, cybersecurity, network and cloud services for businesses across Perth and Western Australia since 2008.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="cloud-solutions.html">Cloud Solutions</a></li>
+          <li><a href="security-solutions.html">Security Solutions</a></li>
+          <li><a href="network-solutions.html">Network Solutions</a></li>
+          <li><a href="managed-services.html">Managed Services</a></li>
+          <li><a href="it-support.html">IT Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Technologies</h2>
+        <ul>
+          <li><a href="fortinet.html">Fortinet services</a></li>
+          <li><a href="cisco.html">Cisco services</a></li>
+          <li><a href="microsoft.html">Microsoft services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <address style="font-style:normal">
+        <ul>
+          <li><a href="tel:+61406913375">0406 913 375</a></li>
+          <li><a href="mailto:support@macktechnologies.com.au">support@macktechnologies.com.au</a></li>
+          <li>St Georges Terrace, Perth WA 6000</li>
+        </ul>
+        </address>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; <span id="year">2026</span> MACK Technologies. All rights reserved. ABN 14 262 083 925</span>
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
